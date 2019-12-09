@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--    <center><h1></h1></center>-->
+    {% if success is defined %}
+    <script>
+    setTimeout(function(){
+    alert("{{loginMsg}}")
+            window.location.replace("/");
+    }, 50)
+    </script>
+    {% else %}
+<script>
+    setTimeout(function(){
+            alert("{{loginMsg}}")
+            window.location.replace("/login");
+    }, 50)
+    </script>
+{% endif %}
+</body>
+</html>

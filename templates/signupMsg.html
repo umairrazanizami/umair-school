@@ -1,0 +1,20 @@
+{% extends "adminLayout.html" %}
+{% block body %}
+
+{% if success is defined %}
+    <script>
+        setTimeout(function(){
+
+            {% if 'teacher' in signupMsg %}
+            alert("{{signupMsg}}")
+            window.location.replace("/addTeacher");
+            {%elif 'student' in signupMsg%}
+            alert("{{signupMsg}}")
+            window.location.replace('/addStudent')
+            {% endif %}
+
+        }, 50)
+    </script>
+{% endif %}
+
+{% endblock %}

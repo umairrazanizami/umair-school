@@ -1,0 +1,33 @@
+{% extends "layout.html"%}
+
+{% block body%}
+<div class="container">
+    <form action="/newSignUp" method="post">
+        <div class="row">
+            <div class="input-field col s6 ">
+              <label>Name</label>
+              <input name="username" type="text" class="validate">
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+              <label>Password</label>
+              <input name="password" type="password" class="validate">
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+              <label>City</label>
+              <input name="city" type="text" class="validate">
+            </div>
+        </div>
+         <button class="btn waves-effect waves-light blue" type="submit" name="action">Sign UP
+  </button>
+
+    </form>
+</div>
+{%endblock%}
+
+{% block footer%}
+
+{%endblock%}

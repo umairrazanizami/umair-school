@@ -1,0 +1,82 @@
+{% extends "adminLayout.html"%}
+{%block body%}
+    {%if value == 'teacher'%}
+       <h1>Edit The Teachers</h1>
+
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Password</th>
+              <th scope="col">Qualification</th>
+              <th scope="col">Contact</th>
+              <th scope="col">City</th>
+              <th scope="col">Update</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for teacher in teachers %}
+            <tr>
+                <form action="/edit_teacher" method="post">
+                  <td><input type="text" name="name" value="{{teacher.name}}"><input type="hidden" name="oldName" value="{{teacher.name}}"></td>
+                  <td><input type="text" name="email" value="{{teacher.email}}"></td>
+                  <td><input type="text" name="password" value="{{teacher.password}}"></td>
+                  <td><input type="text" name="qualification" value="{{teacher.qualification}}"></td>
+                  <td><input type="text" name="contact" value="{{teacher.contact}}"></td>
+                  <td><input type="text" name="city" value="{{teacher.city}}"></td>
+                  <td><button class="btn btn-primary" type="submit">Update</button></td>
+                </form>
+
+                <form action="/delete_teacher" method="post">
+                    <input type="hidden" name="oldName" value="{{teacher.name}}">
+              <td><button class="btn btn-danger" type="submit">Delete</button></td>
+                    </form>
+            </tr>
+          {% endfor%}
+          </tbody>
+        </table>
+    {%elif value == 'student'%}
+         <h1>Edit the Students</h1>
+
+           <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Password</th>
+              <th scope="col">Qualification</th>
+              <th scope="col">Contact</th>
+              <th scope="col">City</th>
+              <th scope="col">Update</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for student in students %}
+            <tr>
+                <form action="/edit_student" method="post">
+                  <td><input type="text" name="name" value="{{student.name}}"><input type="hidden" name="oldName" value="{{student.name}}"></td>
+                  <td><input type="text" name="parent" value="{{student.parent_name}}"></td>
+                  <td><input type="text" name="password" value="{{student.password}}"></td>
+                  <td><input type="text" name="stdclass" value="{{student.std_class}}"></td>
+                  <td><input type="text" name="contact" value="{{student.contact}}"></td>
+                  <td><input type="text" name="city" value="{{student.city}}"></td>
+                  <td><button class="btn btn-primary" type="submit">Update</button></td>
+                </form>
+
+                <form action="/delete_student" method="post">
+                    <input type="hidden" name="oldName" value="{{student.name}}">
+              <td><button class="btn btn-danger" type="submit">Delete</button></td>
+                    </form>
+            </tr>
+          {% endfor%}
+          </tbody>
+        </table>
+    {%endif%}
+
+
+
+
+{%endblock%}
