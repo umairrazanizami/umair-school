@@ -337,4 +337,4 @@ def delete_student():
 
 # ----------------------- end of code and app running--------------------------------
 
-app.run(debug=True)
+# app.run(debug=True)
