@@ -68,7 +68,9 @@ def home():
 # ==================== login page ===================================
 
 
-@app.route('/login')
+
+
+@app.route('/login', methods =['GET'])
 def login():
     if 'role' in session:
         if session['role'] == 'admin':
@@ -82,7 +84,7 @@ def login():
 
 # ===================== LogIn ==================================================
 
-@app.route('/userLogin', methods=["POST"])
+@app.route('/userLogin', methods=["POST" , "GET"])
 def userLogin():
     if request.method == "POST":
         name = request.form['username']
